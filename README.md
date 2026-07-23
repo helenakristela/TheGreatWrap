@@ -72,27 +72,27 @@ Dari sisi ruang, ketiga algoritma menyimpan titik input dan hasil hull dalam str
 
 Input titik acak pada canvas:
 
-![Input titik](menyusul)
+![Input titik](docs/screenshots/1-Input%20titik.png)
 
 Hasil convex hull dengan Graham Scan:
 
-![Graham Scan](menyusul)
+![Graham Scan](docs/screenshots/2-Graham%20Scan.png)
 
 Visualisasi step by step saat algoritma sedang berjalan:
 
-![Step by step](menyusul)
+![Step by step](docs/screenshots/3-Step%20by%20step.png)
 
 Hasil convex hull dengan Jarvis March:
 
-![Jarvis March](menyusul)
+![Jarvis March](docs/screenshots/4-Jarvis%20March.png)
 
 Hasil convex hull dengan QuickHull:
 
-![QuickHull](menyusul)
+![QuickHull](docs/screenshots/5-QuickHull.png)
 
 Panel benchmark yang membandingkan waktu eksekusi ketiga algoritma:
 
-![Benchmark](menyusul)
+![Benchmark](docs/screenshots/6-BenchMark.png)
 
 ## Cara Menjalankan Program
 
@@ -117,4 +117,4 @@ Dataset contoh untuk fitur import tersedia di `data/contoh-input.csv`.
 
 ## Video Demonstrasi
 
-(menyusul)
+`https://drive.google.com/file/d/1juShaQuzwyjqbs0Ubwf5Z6fZNY2juGm8/view?usp=sharing`
