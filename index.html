@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convex Hull Visualizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <h1>Convex Hull Visualizer</h1>
+    </div>
+    <div class="stats">
+      <div class="stat"><span id="point-stat">0</span><label>titik</label></div>
+      <div class="stat"><span id="hull-stat">0</span><label>hull</label></div>
+      <div class="stat"><span id="algo-stat">Graham Scan</span><label>algoritma</label></div>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="canvas-area">
+      <div id="canvas-wrap" class="canvas-wrap">
+        <canvas id="hull-canvas"></canvas>
+      </div>
+      <div class="playback">
+        <button id="prev-btn" class="btn small" title="Langkah sebelumnya">&#8592;</button>
+        <button id="play-btn" class="btn primary">Play</button>
+        <button id="next-btn" class="btn small" title="Langkah berikutnya">&#8594;</button>
+        <button id="reset-btn" class="btn small">Reset</button>
+        <div class="speed">
+          <label for="speed-slider">Kecepatan</label>
+          <input type="range" id="speed-slider" min="1" max="10" value="5">
+        </div>
+        <span id="step-counter" class="step-counter">0 / 0</span>
+      </div>
+      <p id="step-description" class="step-description">Tambahkan minimal 3 titik untuk membentuk convex hull.</p>
+    </section>
+
+    <aside class="sidebar">
+      <div class="panel">
+        <h2>Input Titik</h2>
+        <div class="row">
+          <button id="mode-add" class="toggle active">Tambah Titik</button>
+          <button id="mode-remove" class="toggle">Hapus Titik</button>
+        </div>
+        <div class="row">
+          <select id="dataset-type">
+            <option value="uniform">Acak Merata</option>
+            <option value="circle">Lingkaran</option>
+            <option value="rectangle">Persegi Panjang</option>
+            <option value="gaussian">Distribusi Gaussian</option>
+            <option value="cluster">Cluster</option>
+          </select>
+          <input type="number" id="point-count" value="50" min="3" max="500">
+        </div>
+        <div class="row">
+          <button id="generate-btn" class="btn">Generate Titik</button>
+        </div>
+        <div class="row">
+          <label class="file-label" for="import-input">Import File (.txt / .csv)</label>
+          <input type="file" id="import-input" accept=".txt,.csv" hidden>
+        </div>
+        <div class="row">
+          <button id="clear-btn" class="btn">Hapus Semua Titik</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Algoritma</h2>
+        <div class="row">
+          <select id="algorithm-select">
+            <option value="graham">Graham Scan</option>
+            <option value="jarvis">Jarvis March</option>
+            <option value="quickhull">QuickHull</option>
+          </select>
+        </div>
+        <div class="row checkbox-row">
+          <input type="checkbox" id="dynamic-toggle">
+          <label for="dynamic-toggle">Dynamic Hull (update otomatis)</label>
+        </div>
+        <div class="row">
+          <button id="compute-btn" class="btn primary">Hitung Hull</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Benchmark</h2>
+        <div class="row">
+          <input type="text" id="benchmark-sizes" value="50,200,500,1000" placeholder="contoh: 50,200,500">
+        </div>
+        <div class="row">
+          <button id="benchmark-btn" class="btn">Jalankan Benchmark</button>
+        </div>
+        <table class="benchmark-table">
+          <thead>
+            <tr><th>N</th><th>Algoritma</th><th>Waktu</th><th>|Hull|</th></tr>
+          </thead>
+          <tbody id="benchmark-body"></tbody>
+        </table>
+      </div>
+    </aside>
+  </main>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
